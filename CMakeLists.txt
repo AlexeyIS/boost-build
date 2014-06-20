@@ -1,18 +1,11 @@
 cmake_minimum_required(VERSION 2.8)
 
-project(android-boost)
+project(boost)
 
 #find patched boost directory
-set(boost_root ${CMAKE_CURRENT_SOURCE_DIR}/boost_1_45_0 CACHE PATH 
-    "Boost 1.45.0 patched for android")
+set(boost_root ${CMAKE_CURRENT_SOURCE_DIR}/boost CACHE PATH 
+    "Boost")
 
-if(NOT EXISTS ${boost_root})
-message(FATAL_ERROR
-  "${boost_root} does not exist!
-    Please run ${CMAKE_CURRENT_SOURCE_DIR}/get_boost.sh to get a patched copy of
-    boost 1.45.0
-    ")
-endif()
 
 set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS}  -DNO_BZIP2" )
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -DNO_BZIP2")
